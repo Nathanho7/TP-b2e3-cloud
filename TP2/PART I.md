@@ -72,6 +72,15 @@ ssh-agent -t 1h	vas demarrer l'agent avec un timeout de 1h (en gros clé oublié
 source "$HOME/.ssh/agent-environment"	Charge ces variables dans le shell si l'agent tourne déjà
 ```
 
+```sh
+gusta@NATHANHOAMB:~$ eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/cloud_tp1
+Agent pid 11377
+Enter passphrase for /home/gusta/.ssh/cloud_tp1:
+Identity added: /home/gusta/.ssh/cloud_tp1 (gusta@NATHANHOAMB)
+gusta@NATHANHOAMB:~$
+```
+ 
 
 
 
