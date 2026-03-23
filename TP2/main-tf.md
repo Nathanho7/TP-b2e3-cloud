@@ -1,5 +1,6 @@
 # main.tf
 
+```sh
 provider "azurerm" {
   features {}
   subscription_id = var.subscription_id
@@ -73,3 +74,4 @@ resource "azurerm_linux_virtual_machine" "main" {
     version   = "9.7.2025121501"
   }
 }
+```
