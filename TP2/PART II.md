@@ -131,10 +131,41 @@ Mar 23 14:40:34 cloud-tp2-alma systemd[1]: Finished Cloud-init: Network Stage.
 🌞 Utilisez Terraform pour créer une VM dans Azure
 ```sh
 -> Voir ficher main.tf
+azurerm_resource_group.main: Creating...
+azurerm_resource_group.main: Still creating... [00m11s elapsed]
+azurerm_resource_group.main: Still creating... [00m21s elapsed]
+azurerm_resource_group.main: Still creating... [00m31s elapsed]
+azurerm_resource_group.main: Creation complete after 39s [id=/subscriptions/f2760058-a494-48ea-bb1a-2c7e7e67a572/resourceGroups/cloud-tp2-terraform_group]
+azurerm_virtual_network.main: Creating...
+azurerm_public_ip.main: Creating...
+azurerm_virtual_network.main: Still creating... [00m10s elapsed]
+azurerm_public_ip.main: Still creating... [00m10s elapsed]
+azurerm_public_ip.main: Creation complete after 14s [id=/subscriptions/f2760058-a494-48ea-bb1a-2c7e7e67a572/resourceGroups/cloud-tp2-terraform_group/providers/Microsoft.Network/publicIPAddresses/vm-ip]
+azurerm_virtual_network.main: Creation complete after 17s [id=/subscriptions/f2760058-a494-48ea-bb1a-2c7e7e67a572/resourceGroups/cloud-tp2-terraform_group/providers/Microsoft.Network/virtualNetworks/vm-vnet]
+azurerm_subnet.main: Creating...
+azurerm_subnet.main: Still creating... [00m10s elapsed]
+azurerm_subnet.main: Creation complete after 17s [id=/subscriptions/f2760058-a494-48ea-bb1a-2c7e7e67a572/resourceGroups/cloud-tp2-terraform_group/providers/Microsoft.Network/virtualNetworks/vm-vnet/subnets/vm-subnet]
+azurerm_network_interface.main: Creating...
+azurerm_network_interface.main: Creation complete after 10s [id=/subscriptions/f2760058-a494-48ea-bb1a-2c7e7e67a572/resourceGroups/cloud-tp2-terraform_group/providers/Microsoft.Network/networkInterfaces/vm-nic]
+azurerm_linux_virtual_machine.main: Creating...
+azurerm_linux_virtual_machine.main: Still creating... [00m10s elapsed]
+azurerm_linux_virtual_machine.main: Still creating... [00m21s elapsed]
+azurerm_linux_virtual_machine.main: Still creating... [00m31s elapsed]
+azurerm_linux_virtual_machine.main: Still creating... [00m41s elapsed]
+azurerm_linux_virtual_machine.main: Still creating... [00m52s elapsed]
+azurerm_linux_virtual_machine.main: Still creating... [01m02s elapsed]
+azurerm_linux_virtual_machine.main: Creation complete after 1m6s [id=/subscriptions/f2760058-a494-48ea-bb1a-2c7e7e67a572/resourceGroups/cloud-tp2-terraform_group/providers/Microsoft.Compute/virtualMachines/cloud-tp2-terraform]
+
+Apply complete! Resources: 6 added, 0 changed, 0 destroyed.
 ```
 
 🌞 Prouvez avec une connexion SSH sur l'IP publique que la VM est up
 ```sh
+gusta@NATHANHOAMB:~$ ssh gustave@158.158.42.28 -i ~/.ssh/cloud_tp1
+Enter passphrase for key '/home/gusta/.ssh/cloud_tp1':
+Last login: Mon Mar 23 16:30:17 2026 from 176.159.167.242
+[gustave@cloud-tp2-terraform ~]$
+```
 
 
 
