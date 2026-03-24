@@ -30,4 +30,9 @@ variable "subscription_id" {
   type        = string
   description = "Azure subscription ID"
 }
+
+variable "keyvault_name" {
+  type        = string
+  description = "Name of the Azure Key Vault"
+}
 ```
