@@ -15,41 +15,46 @@ terraform.tfvars modif
 gusta@NATHANHOAMB:~/terraform-tp2-azure$ az keyvault secret show --name "gustave-secret" --vault-name "kv-gustave-kapi"
 {
   "attributes": {
-    "created": "2026-03-24T09:13:55+00:00",
+    "created": "2026-03-24T09:48:16+00:00",
     "enabled": true,
     "expires": null,
     "notBefore": null,
     "recoverableDays": 7,
     "recoveryLevel": "CustomizedRecoverable+Purgeable",
-    "updated": "2026-03-24T09:13:55+00:00"
+    "updated": "2026-03-24T09:48:16+00:00"
   },
-  "contentType": "",
-  "id": "https://kv-gustave-kapi.vault.azure.net/secrets/gustave-secret/ee95d8a473bc4a329a6206fad8f0974b",
+  "contentType": null,
+  "id": "https://kv-gustave-kapi.vault.azure.net/secrets/gustave-secret/3381d3f7c2f94a908c11a4c9a1389bf5",
   "kid": null,
   "managed": null,
   "name": "gustave-secret",
-  "tags": {},
-  "value": "qbSfH*470*SV)7aJ"
+  "tags": {
+    "file-encoding": "utf-8"
+  },
+  "value": "spiderman Brand New Day yeah"
 }
-gusta@NATHANHOAMB:~/terraform-tp2-azure$
 ```
 
 🌞 Depuis la VM, afficher le secret
 ```sh
-gusta@NATHANHOAMB:~$ nano get_secret.sh
+[gustave@cloud-tp2-terraform ~]$ vi gustave_secret.sh
 #!/bin/bash
 
-# 1. On demande un token à Azure
 TOKEN=$(curl -s -H "Metadata:true" \
   "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://vault.azure.net" \
   | python3 -c "import sys,json; print(json.load(sys.stdin)['access_token'])")
 
-echo "Token récupéré !"
-
-# 2. On utilise le token pour lire le secret
 SECRET=$(curl -s -H "Authorization: Bearer $TOKEN" \
   "https://kv-gustave-kapi.vault.azure.net/secrets/gustave-secret?api-version=7.0" \
   | python3 -c "import sys,json; print(json.load(sys.stdin)['value'])")
 
-echo "The  : $SECRET"
+echo "The Beuatiful Secret is : $SECRET"
+```
+
+```sh
+[gustave@cloud-tp2-terraform ~]$ ./gustave_secret.sh
+The Beuatiful Secret is : spiderman Brand New Day yeah
+```
+
+
 
