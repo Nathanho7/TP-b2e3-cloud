@@ -173,7 +173,13 @@ azurerm_linux_virtual_machine.main: Creation complete after 1m17s [id=/subscript
 [gustave@cloud-tp2-terraform ~]$ sudo ss -tulnp | grep sshd
 tcp   LISTEN 0      128          0.0.0.0:2222      0.0.0.0:*    users:(("sshd",pid=10950,fd=3))
 tcp   LISTEN 0      128             [::]:2222         [::]:*    users:(("sshd",pid=10950,fd=4))
-``` 
+```
+
+-Connection ban NSG
+```sh
+gusta@NATHANHOAMB:~$ ssh -p 2222 -i ~/.ssh/cloud_tp1 gustave@68.221.64.221
+ssh: connect to host 68.221.64.221 port 2222: Connection timed out
+```
 
 
 
