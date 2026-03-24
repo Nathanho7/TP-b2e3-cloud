@@ -8,4 +8,5 @@ voire storage.tf
 
 ## 3. Proooooooofs¶
 🌞 Prouvez que tout est bien configuré, depuis la VM Azure
-```sh 
+```sh
+
